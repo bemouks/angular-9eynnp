@@ -10,7 +10,7 @@ import { CartService } from "../service/cart.service";
   styleUrls: ["./product-details.component.css"]
 })
 export class ProductDetailsComponent implements OnInit {
-  product;
+  product: { id: number; name: string; price: number; description: string };
 
   constructor(
     private route: ActivatedRoute,
@@ -27,7 +27,7 @@ export class ProductDetailsComponent implements OnInit {
     this.product = products.find(product => product.id === productIdFromRoute);
   }
 
-  addToCart(product) {
+  addToCart(product: any) {
     this.cartService.addToCart(product);
     window.alert("Your product has been added to the cart!");
   }

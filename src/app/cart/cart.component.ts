@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CartService } from "../service/cart.service";
-import { FormBuilder } from "@angular/forms";
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "app-cart",
@@ -8,8 +8,8 @@ import { FormBuilder } from "@angular/forms";
   styleUrls: ["./cart.component.css"]
 })
 export class CartComponent implements OnInit {
-  items;
-  checkoutForm;
+  items: any;
+  checkoutForm: FormGroup;
 
   constructor(
     private cartService: CartService,
@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
     this.items = this.cartService.getItems();
   }
 
-  onSubmit(customerData) {
+  onSubmit(customerData: any) {
     // Process checkout data here
     this.items = this.cartService.clearCart();
     this.checkoutForm.reset();

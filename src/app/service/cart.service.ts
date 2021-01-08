@@ -7,7 +7,7 @@ export class CartService {
 
   items = [];
 
-  addToCart(product) {
+  addToCart(product: any) {
     this.items.push(product);
     console.log(this.items);
   }
